@@ -25,46 +25,43 @@ function summElementsWorker(...arr) {
 function differenceMaxMinWorker(...arr) {
   if (summElementsWorker(...arr) == 0 || isNaN(summElementsWorker(...arr))) {
     return 0;
-  } else {
-    let max = Math.max(...arr);
-    let min = Math.min(...arr);
-    return max - min;
   }
+  let max = Math.max(...arr);
+  let min = Math.min(...arr);
+  return max - min;
 }
 
 function differenceEvenOddWorker(...arr) {
   if (summElementsWorker(...arr) == 0 || isNaN(summElementsWorker(...arr))) {
     return 0;
-  } else {
-    let sumEvenElement = 0;
-    let sumOddElement = 0;
-    for (let i = 0; i < arr.length; i++) {
-      const value = arr[i];
-      if (value % 2 == 0) {
-        sumEvenElement += value;
-      } else {
-        sumOddElement += value;
-      }
-    }
-    return sumEvenElement - sumOddElement;
   }
+  let sumEvenElement = 0;
+  let sumOddElement = 0;
+  for (let i = 0; i < arr.length; i++) {
+    const value = arr[i];
+    if (value % 2 == 0) {
+      sumEvenElement += value;
+    } else {
+      sumOddElement += value;
+    }
+  }
+  return sumEvenElement - sumOddElement;
 }
 
 function averageEvenElementsWorker(...arr) {
   if (summElementsWorker(...arr) == 0 || isNaN(summElementsWorker(...arr))) {
     return 0;
-  } else {
-    let sumEvenElement = 0;
-    let countEvenElement = 0;
-    for (let i = 0; i < arr.length; i++) {
-      const value = arr[i];
-      if (value % 2 == 0) {
-        sumEvenElement += value;
-        countEvenElement++;
-      }
-    }
-    return sumEvenElement / countEvenElement;
   }
+  let sumEvenElement = 0;
+  let countEvenElement = 0;
+  for (let i = 0; i < arr.length; i++) {
+    const value = arr[i];
+    if (value % 2 == 0) {
+      sumEvenElement += value;
+      countEvenElement++;
+    }
+  }
+  return sumEvenElement / countEvenElement;
 }
 
 function makeWork(arrOfArr, func) {
