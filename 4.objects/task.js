@@ -13,21 +13,16 @@ Student.prototype.setSubject = function (subjectName) {
 }
 
 Student.prototype.addMarks = function (...marks) {
-    if (this.marks === undefined) {
-        return this.excluded.reason;
-    } else {
-        this.marks = this.marks.concat(marks);
+    if (this.marks !== undefined) {
+        this.marks.push(...marks);
     }
 }
 
 Student.prototype.getAverage = function () {
-    if (this.marks === undefined) {
+    if (this.marks === undefined || this.marks.length === 0) {
         return 0;
     } else {
         const average = this.marks.reduce((accumulator, value) => accumulator + value, 0) / this.marks.length;
-        if (isNaN(average)) {
-            return 0;
-        }
         return average
     }
 }
