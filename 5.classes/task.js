@@ -91,7 +91,7 @@ class Library {
         if (book === null) {
             return null;
         }
-        return this.books.pop(book) && book;
+        return this.books.splice(book) && book;
     }
 }
 
@@ -143,6 +143,9 @@ class Student {
 
     getAverage() {
         const keys = Object.keys(this.marks);
+        if (isNaN(keys.length)) {
+            return 0;
+        }
         let summ = 0;
         for (let i = 0; i < keys.length; i++) {
             const subject = keys[i];
