@@ -91,7 +91,7 @@ class Library {
         if (book === null) {
             return null;
         }
-        return this.books.splice(book) && book;
+        return this.books.splice(this.books.indexOf(book), 1) && book;
     }
 }
 
@@ -103,11 +103,12 @@ library.addBook(new NovelBook("Герберт Уэллс", "Машина вре�
 library.addBook(new Magazine("Мурзилка", 1924, 60));
 library.addBook(new FantasticBook('Джон Толкин', 'Властелин колец', 1954, 2093));
 library.addBook(new DetectiveBook('Агата Кристи', 'Десять негритят', 2019, 256));
+library.addBook(new DetectiveBook('Агата Кристи', 'Десять негритят', 2019, 256));
 library.addBook(new Book('Типовой школьный журнал', 2019, 102));
 console.log(library.findBookBy("releaseDate", 1919));
 console.log("Количество книг до выдачи: " + library.books.length);
 console.log(library.books);
-const givedBook = library.giveBookByName("Машина времени");
+const givedBook = library.giveBookByName("Десять негритят");
 console.log(givedBook);
 console.log("Количество книг после выдачи: " + library.books.length);
 console.log(library.books);
@@ -143,7 +144,7 @@ class Student {
 
     getAverage() {
         const keys = Object.keys(this.marks);
-        if (isNaN(keys.length)) {
+        if (keys.length === 0) {
             return 0;
         }
         let summ = 0;
