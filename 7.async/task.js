@@ -10,17 +10,14 @@ class AlarmClock {
             throw new Error('Отсутствуют обязательные аргументы');
         }
         if (this.alarmCollection.find(alarm => alarm.time == time)) {
-            return console.warn('Уже присутствует звонок на это же время');
+            console.warn('Уже присутствует звонок на это же время');
         }
         return this.alarmCollection.push(alarm)
     }
 
     removeClock(time) {
-        let index = this.alarmCollection.findIndex(alarm => alarm.time == time);
-        if (index === -1) {
-            return null;
-        }
-        return this.alarmCollection.splice(index, 1);
+        const filteredArray = this.alarmCollection.filter(alarm => alarm.time !== time)
+        return this.alarmCollection = filteredArray;
     }
 
     getCurrentFormattedTime() {
